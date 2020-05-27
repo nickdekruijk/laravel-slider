@@ -13,6 +13,7 @@ class SliderServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->loadViewsFrom(__DIR__ . '/views', 'slider');
         $this->publishes([
             __DIR__ . '/config.php' => config_path('slider.php'),
         ], 'config');
