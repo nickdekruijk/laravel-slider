@@ -1,6 +1,30 @@
 # laravel-slider
 A slider/carousel package for Laravel, inclused model, migration, view, js and css.
 
+## Usage
+To install run:
+
+```composer require nickdekruijk/laravel-slider```
+
+If you don't like the default configuration (migration and/or table name) publish the config and edit `config/slider.php` where needed:
+
+```php artisan vendor:publish --tag=config --provider="NickDeKruijk\LaravelSlider\SliderServiceProvider"```
+
+After installation run the migration with:
+
+```php artisan migrate```
+
+Include the provided javascript and css inside your application. For example with the [nickdekruijk/minify](https://github.com/nickdekruijk/minify) package:
+
+```php
+{!! Minify::stylesheet(['../vendor/nickdekruijk/laravel-slider/src/assets/slider.css', '../resources/sass/styles.scss']) !!}
+{!! Minify::javascript(['../vendor/nickdekruijk/laravel-slider/src/assets/slider.js', '../resources/js/scripts.js']) !!}
+```
+
+Or just copy/paste the contents of the assets change where needed.
+
+Now you can use the default view `slider::slider` inside Laravel.
+
 ## [nickdekruijk/admin](https://github.com/nickdekruijk/admin) integration
 Add this to the modules array in your `config/admin.php` file (change where needed for your project):
 ```php
