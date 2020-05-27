@@ -1,7 +1,20 @@
-.slider {width:100%;margin-top:40px;height:392px;position:relative}
-.slider-container {position:relative;overflow:hidden;background:red}
-.slider-container:before {content:'';transform:skewX(-10deg) translateX(-100%);width:220px;height:100%;position:absolute;z-index:100;transform-origin:bottom right}
-.slide {position:absolute;width:100%;height:100%;background-position:center center;background-size:cover;opacity:0;transition:opacity 0s, transform 0s;transition-delay:1s;z-index:1}
+.slider {width:100%;height:100vh;position:relative}
+.slide {position:absolute;width:100%;height:100%;background-position:center;background-size:cover;opacity:0;transition:opacity 0s, transform 0s;transition-delay:1s;z-index:1;display:flex;align-items:center}
 .slide.active {opacity:1;z-index:2;transition-delay:0s;transition:opacity 1s, transform 1s}
-.slide H2 {position:absolute;bottom:0;left:0;right:0;font-size:2rem;padding:0 10px 15px 30px}
-.slide .button {position:absolute;right:15px;bottom:15px}
+.slide-content {text-shadow:rgba(0,0,0,0.5) 0 1px 4px;color:#fff;width:100%}
+.slide-content P {max-width:50%;line-height:1.5;margin:1em 0}
+.slide .button {display:inline-block;background-color:rgba(#fff,0.3);border:1px solid #fff;border-radius:5px;padding:10px 20px;text-shadow:none}
+.slide .button:hover {background-color:#fff;color:#000;border-color:#fff}
+
+.slider-button {display:block;position:absolute;top:50%;width:50px;height:50px;border-radius:100px;z-index:10;background-color:rgba(#000,.3);transform:translateY(-50%);transition:background-color .25s;cursor:pointer}
+.slider-prev {left:2%}
+.slider-next {right:2%}
+.slider-button:before {content:'';display:block;width:16px;height:16px;border-top:4px solid #fff;border-right:4px solid #fff;transform:rotate(45deg);position:absolute;top:15px;transition:border-color .25s}
+.slider-prev:before {transform:rotate(-135deg);left:18px}
+.slider-next:before {transform:rotate(45deg);left:10px}
+.slider-button:hover {background-color:#fff}
+.slider-button:hover:before {border-color:#000}
+
+.slider-dots {z-index:10;position:absolute;width:100%;text-align:center;bottom:1vw}
+.slider-dot {display:inline-block;background-color:#000;border:1px solid #fff;border-radius:100px;width:17px;height:17px;margin:0 10px;color:transparent;cursor:pointer;transition:background-color 1s;overflow:hidden}
+.slider-dot.active {background-color:#fff}
