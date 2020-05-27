@@ -1,0 +1,28 @@
+{
+    "name": "nickdekruijk/laravel-slider",
+    "description": "A slider/carousel package for Laravel, inclused model, migration, view, js and css",
+    "license": "MIT",
+    "keywords": ["slider", "javascript", "laravel", "slide", "carousel", "css", "transitions"],
+    "homepage": "http://www.nickdekruijk.nl/packages/settings",
+    "authors": [{
+        "name": "Nick de Kruijk",
+        "email": "git@nickdekruijk.nl"
+    }],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.2.0",
+        "nickdekruijk/admin": "^1.7"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "NickDeKruijk\\LaravelSlider\\SliderServiceProvider"
+            ]
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "NickDeKruijk\\Settings\\": "src/"
+        }
+    }
+}
