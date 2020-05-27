@@ -22,7 +22,7 @@
     },
     "autoload": {
         "psr-4": {
-            "NickDeKruijk\\Settings\\": "src/"
+            "NickDeKruijk\\LaravelSlider\\": "src/"
         }
     }
 }
