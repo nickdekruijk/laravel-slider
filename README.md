@@ -1,7 +1,7 @@
 # laravel-slider
 A slider/carousel package for Laravel, inclused model, migration, view, js and css.
 
-## nickdekruijk/admin integration
+## [nickdekruijk/admin](https://github.com/nickdekruijk/admin) integration
 Add this to the modules array in your `config/admin.php` file (change where needed for your project):
 ```php
         'slider' => [
