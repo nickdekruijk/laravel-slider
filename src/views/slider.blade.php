@@ -1,6 +1,6 @@
 <section class="slider">
     @foreach(NickDeKruijk\LaravelSlider\Slide::active()->get() as $slide)
-        <div class="lazy slide{{ $loop->iteration == 1 ? ' active' : '' }}" data-bg="{{ asset('media/' . $slide->image()) }}">
+        <div class="lazy slide{{ $loop->iteration == 1 ? ' active' : '' }} {{ $slide->classes}}" data-bg="{{ asset('media/' . $slide->image()) }}">
             <div class="slide-content max-width">
                 @if ($slide->head)
                     <h3>{{ $slide->head }}</h3>

@@ -18,6 +18,7 @@ class CreateSlidesTable extends Migration
             $table->string('title');
             $table->string('head')->nullable();
             $table->text('images')->nullable();
+            $table->string('classes')->nullable();
             $table->text('text')->nullable();
             $table->string('button1')->nullable();
             $table->string('link1')->nullable();

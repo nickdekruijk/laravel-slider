@@ -47,6 +47,7 @@ Add this to the modules array in your `config/admin.php` file (change where need
                 'images' => [
                     'type' => 'image',
                 ],
+                'classes' => [],
                 'head' => [],
                 'text' => [
                     'tinymce' => true,
