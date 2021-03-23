@@ -14,14 +14,27 @@ After installation run the migration with:
 
 ```php artisan migrate```
 
-Include the provided javascript and css inside your application. For example with the [nickdekruijk/minify](https://github.com/nickdekruijk/minify) package:
+Include the provided javascript, lazyload and css inside your application. For example with the [nickdekruijk/minify](https://github.com/nickdekruijk/minify) package:
 
 ```php
-{!! Minify::stylesheet(['../vendor/nickdekruijk/laravel-slider/src/assets/slider.css', '../resources/sass/styles.scss']) !!}
+{!! Minify::stylesheet(['https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.2/dist/lazyload.min.js', '../vendor/nickdekruijk/laravel-slider/src/assets/slider.css', '../resources/sass/styles.scss']) !!}
 {!! Minify::javascript(['../vendor/nickdekruijk/laravel-slider/src/assets/slider.js', '../resources/js/scripts.js']) !!}
 ```
 
 Or just copy/paste the contents of the assets change where needed.
+
+Add the required javascript somewhere in your applications, for example /resources/js/scripts.js
+```javascript
+var myLazyLoad = new LazyLoad({
+    elements_selector: '.lazy',
+    load_delay: 300
+});
+var slider = new Slider({
+    selector: '.slider',
+    slideSelector: '.slide',
+    interval: 5000,
+});
+```
 
 Now you can use the default view `slider::slider` inside Laravel.
 
