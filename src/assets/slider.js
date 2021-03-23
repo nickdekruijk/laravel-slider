@@ -24,6 +24,9 @@ window.Slider = function(options) {
         keyboardEnabled: true,
         selector: '.slider',
         slideSelector: '.slide',
+        touchkeys: false,
+        touchsensitivity: 5,
+        touchwipe: true,
     }
 
     // Merge defaults and options into settings to use
@@ -86,7 +89,7 @@ window.Slider = function(options) {
         this.slideGo(currentSlider + 1);
     }
 
-    if (slides.length) {
+    if (slides.length && this.option.interval > 0) {
         var interval = setInterval(function() {
             _this.slideNext();
         }, this.option.interval);
@@ -117,5 +120,36 @@ window.Slider = function(options) {
                 _this.slideNext();
             }
         })
+    }
+
+    if (_this.option.touchwipe && 'ontouchstart' in window) {
+        // Activate touch gestures
+        slider.addEventListener('touchstart', function(evt) {
+            xDown = evt.touches[0].clientX;
+            console.log(xDown);
+        }, false);
+        slider.addEventListener('touchmove', function(evt) {
+            if (!xDown) {
+                return;
+            }
+            var xDiff = xDown - evt.touches[0].clientX;
+            if (Math.abs(xDiff) >= _this.option.touchsensitivity) {
+                if (xDiff > 0) {
+                    clearInterval(interval);
+                    _this.slidePrevious();
+                } else {
+                    clearInterval(interval);
+                    _this.slideNext();
+                }
+            }
+            console.log(xDown, xDiff);
+            xDown = null;
+        }, false);
+
+        // Hide arrow keys on touch devices
+        if (!_this.option.touchkeys) {
+            slider.querySelector(_this.option.buttonPreviousSelector).style.display = 'none';
+            slider.querySelector(_this.option.buttonNextSelector).style.display = 'none';
+        }
     }
 }
