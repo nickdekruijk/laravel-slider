@@ -21,7 +21,7 @@ Include the provided javascript, lazyload and css inside your application. For e
 {!! Minify::javascript(['https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.2/dist/lazyload.min.js', '../vendor/nickdekruijk/laravel-slider/src/assets/slider.js', '../resources/js/scripts.js']) !!}
 ```
 
-Or just copy/paste the contents of the assets change where needed.
+Or just copy/paste the contents of the assets and change where needed.
 
 Add the required javascript somewhere in your applications, for example /resources/js/scripts.js
 ```javascript
