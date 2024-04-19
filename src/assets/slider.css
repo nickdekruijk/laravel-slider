@@ -3,7 +3,7 @@
 .slide.active {opacity:1;z-index:2;transition-delay:0s;transition:opacity 1s, transform 1s}
 .slide-content {text-shadow:rgba(0,0,0,0.5) 0 1px 4px;color:#fff;width:100%}
 .slide-content P {max-width:50%;line-height:1.5;margin:1em 0}
-.slide .button {display:inline-block;background-color:rgba(#fff,0.3);border:1px solid #fff;border-radius:5px;padding:10px 20px;text-shadow:none}
+.slide .button {display:inline-block;border:1px solid #fff;padding:10px 20px;text-shadow:none}
 .slide .button:hover {background-color:#fff;color:#000;border-color:#fff}
 
 .slider-button {display:block;position:absolute;top:50%;width:50px;height:50px;border-radius:100px;z-index:10;background-color:rgba(#000,.3);transform:translateY(-50%);transition:background-color .25s;cursor:pointer}
@@ -18,3 +18,7 @@
 .slider-dots {z-index:10;position:absolute;width:100%;text-align:center;bottom:1vw}
 .slider-dot {display:inline-block;background-color:#000;border:1px solid #fff;border-radius:100px;width:17px;height:17px;margin:0 10px;color:transparent;cursor:pointer;transition:background-color 1s;overflow:hidden}
 .slider-dot.active {background-color:#fff}
+
+/* Hide dots/buttons when only one slide */
+.slide:first-child + .slider-dots {display:none}
+.slide:first-child + .slider-dots ~ .slider-button {display:none}
