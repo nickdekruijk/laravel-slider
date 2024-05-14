@@ -147,9 +147,11 @@ window.Slider = function (options) {
         }, false);
 
         // Hide arrow keys on touch devices
-        if (!_this.option.touchkeys) {
-            if (e = slider.querySelector(_this.option.buttonPreviousSelector)) e.style.display = 'none';
-            if (e = slider.querySelector(_this.option.buttonNextSelector)) e.style.display = 'none';
+        if (!_this.option.touchkeys && slider.querySelector(_this.option.buttonPreviousSelector)) {
+            slider.querySelector(_this.option.buttonPreviousSelector).style.display = 'none';
+        }
+        if (!_this.option.touchkeys && slider.querySelector(_this.option.buttonNextSelector)) {
+            slider.querySelector(_this.option.buttonNextSelector).style.display = 'none';
         }
     }
 }
